@@ -4,7 +4,7 @@
 
 To create a new project with React Native CLI:
 
-`npx react-native@latest init MyApp --template @appdevmastery/react-native-boilerplate`
+`npx react-native@latest init MyApp --template @appdevmastery/react-native-boilerplate --pm npm`
 
 ## Features
 
