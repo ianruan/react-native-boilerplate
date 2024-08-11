@@ -13,6 +13,6 @@ To create a new project with React Native CLI:
 - 🧭 React Navigation
 - 💅 React Native Paper - one of the most popular React Native UI libraries.
 - 💡 Support for tsconfig.json aliases `@/`.
-- 🐻 Zustand state management library.
+- 🏝️ TanStack react query library
 - 🐻 Zustand state management library.
 - 🧪 Test with React Native Testing Library
