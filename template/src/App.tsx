@@ -14,6 +14,7 @@ import {
   DarkTheme as NavigationDarkTheme,
   DefaultTheme as NavigationDefaultTheme,
 } from '@react-navigation/native';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import AppNavigator from './navigators/AppNavigator';
 
@@ -25,19 +26,23 @@ const { LightTheme, DarkTheme } = adaptNavigationTheme({
 const CombinedDefaultTheme = merge(MD3LightTheme, LightTheme);
 const CombinedDarkTheme = merge(MD3DarkTheme, DarkTheme);
 
+const queryClient = new QueryClient();
+
 const App = () => {
   const colorScheme = useColorScheme();
   const theme =
     colorScheme === 'dark' ? CombinedDarkTheme : CombinedDefaultTheme;
 
   return (
-    <SafeAreaProvider>
-      <PaperProvider theme={theme}>
-        <NavigationContainer theme={theme}>
-          <AppNavigator />
-        </NavigationContainer>
-      </PaperProvider>
-    </SafeAreaProvider>
+    <QueryClientProvider client={queryClient}>
+      <SafeAreaProvider>
+        <PaperProvider theme={theme}>
+          <NavigationContainer theme={theme}>
+            <AppNavigator />
+          </NavigationContainer>
+        </PaperProvider>
+      </SafeAreaProvider>
+    </QueryClientProvider>
   );
 };
 

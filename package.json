@@ -1,12 +1,12 @@
 {
-  "name": "@appdevmastery/react-native-boilerplate",
-  "version": "1.0.0",
-  "description": "AppDevMastery React Native Boilerplate",
+  "name": "@ianruan/react-native-boilerplate",
+  "version": "1.0.1",
+  "description": "React Native Boilerplate",
   "repository": {
     "type": "git",
     "url": "https://github.com/ianruan/react-native-boilerplate.git"
   },
-  "author": "Ian Ruan <hi@AppDevMastery.com>",
+  "author": "Ian Ruan <hi@ianruan.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ianruan/react-native-boilerplate/issues"
@@ -20,7 +20,6 @@
     "react",
     "native",
     "boilerplate",
-    "appdevmastery",
     "react-native",
     "starter-kit"
   ],

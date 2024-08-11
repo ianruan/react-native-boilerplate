@@ -1,7 +1,5 @@
-import { fetchOne } from '@/services/users';
-import { type Store, type StoreState } from '@/types/store';
+import type { Store, StoreState } from '@/types/store';
 import createStore from '@/utils/createStore';
-import { getError } from '@/utils/error';
 
 interface User {
   id: number;
@@ -14,7 +12,7 @@ interface UserState extends StoreState {
 }
 
 interface UserActions {
-  fetchUser: (id: number) => Promise<void>;
+  setUser: (data: User | null) => void;
 }
 
 export type UserStore = UserState & UserActions;
@@ -27,24 +25,10 @@ const initialState: UserState = {
 
 const userStore: Store<UserStore> = set => ({
   ...initialState,
-  fetchUser: async (id: number) => {
+  setUser: (data: User | null) => {
     set(state => {
-      state.isPending = true;
-      state.error = null;
+      state.user = data;
     });
-
-    try {
-      const response = await fetchOne(id);
-      set(state => {
-        state.user = response;
-        state.isPending = false;
-      });
-    } catch (err) {
-      set(state => {
-        state.isPending = false;
-        state.error = getError(err);
-      });
-    }
   },
 });
 
